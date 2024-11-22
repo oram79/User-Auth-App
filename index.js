@@ -21,14 +21,12 @@ app.use(
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const USERS = [
+const users = [
     {
         id: 1,
         username: "AdminUser",
         email: "admin@example.com",
-        password: bcrypt.hashSync("admin123", SALT_ROUNDS), //In a database, you'd just store the hashes, but for
-                                                            // our purposes we'll hash these existing users when the
-                                                            // app loads
+        password: bcrypt.hashSync("admin123", SALT_ROUNDS),
         role: "admin",
     },
     {
@@ -36,8 +34,15 @@ const USERS = [
         username: "RegularUser",
         email: "user@example.com",
         password: bcrypt.hashSync("user123", SALT_ROUNDS),
-        role: "user", // Regular user
+        role: "user",
     },
+    {
+        id: 3,
+        username: "oram_79",
+        email: "logansjoram7922@gmail.com",
+        password: bcrypt.hashSync("Sadie2011!", SALT_ROUNDS),
+        role: "admin"
+        }
 ];
 
 // GET /login - Render login form
@@ -71,7 +76,7 @@ app.get("/signup", (request, response) => {
 });
 
 // POST /signup - Allows a user to signup
-let users = [];``
+
 app.post("/signup",async(request, response) => {
     const { username, email, password } = request.body;
     const hashedPassword = await bcrypt.hash(password, 10);
