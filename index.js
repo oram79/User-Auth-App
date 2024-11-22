@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
+const bcrypt = require('bcrypt');
+
 
 const app = express();
 const PORT = 3000;
@@ -24,8 +26,8 @@ const USERS = [
         id: 1,
         username: "AdminUser",
         email: "admin@example.com",
-        password: bcrypt.hashSync("admin123", SALT_ROUNDS), //In a database, you'd just store the hashes, but for 
-                                                            // our purposes we'll hash these existing users when the 
+        password: bcrypt.hashSync("admin123", SALT_ROUNDS), //In a database, you'd just store the hashes, but for
+                                                            // our purposes we'll hash these existing users when the
                                                             // app loads
         role: "admin",
     },
