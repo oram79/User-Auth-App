@@ -62,37 +62,3 @@ This repository is set up as a **GitHub template** to help you quickly create yo
     git commit -m "First commit"  
     git push origin main  
     ```  
-
-By using this template, you'll have the project structure and initial setup ready to go, so you can focus on building the functionality!
-
-## Development Guidelines  
-
-1. **Authentication**:  
-   - Use `express-session` for session management.  
-   - Hash all passwords with bcrypt before storing them.  
-   - Authenticate users during login by comparing hashed passwords.  
-
-2. **Role-Based Access Control (RBAC)**:  
-   - Restrict the admin view of all registered users to accounts with the admin role.  
-   - Regular users should only access their dashboard.  
-
-3. **Error Handling**:  
-   - Display errors during login or signup if applicable.  
-
-4. **Security**:  
-   - Ensure no plaintext passwords are stored or transmitted.  
-
-5. **Data Storage**:  
-   - Use an in-memory array to store user accounts. Persistent data storage is not required.
-
-## Submission Guidelines  
-
-- Submit a link to your GitHub repository through the Teams assignment.  
-- Ensure the application runs correctly with `npm start`.  
-- Include all required functionality as specified in the assignment description.
-
-## Notes  
-
-- Extra npm packages are allowed (except for templating engines like React).  
-- All pages should use **EJS templates** for rendering.  
-- Focus on building secure and functional features with proper user experience.  
