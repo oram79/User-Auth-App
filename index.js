@@ -56,8 +56,12 @@ app.get("/signup", (request, response) => {
 });
 
 // POST /signup - Allows a user to signup
-app.post("/signup", (request, response) => {
-    
+let users = [];``
+app.post("/signup",async(request, response) => {
+    const { username, email, password } = request.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    users.push({ username, email, password: hashedPassword, role: 'user' });
+    response.redirect('/login'); // Redirect to login after successful registration
 });
 
 // GET / - Render index page or redirect to landing if logged in
