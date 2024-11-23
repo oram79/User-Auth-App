@@ -41,7 +41,7 @@ const users = [
         username: "oram_79",
         email: "logansjoram7922@gmail.com",
         password: bcrypt.hashSync("Sadie2011!", SALT_ROUNDS),
-        role: "admin"
+        role: "user"
         }
 ];
 
@@ -103,6 +103,12 @@ app.get("/landing", (request, response) => {
     } else {
         response.render('dashboard', { user: request.session.user });
     }
+});
+
+app.get('/logout', (request, response) => {
+    request.session.destroy(() => {
+        response.redirect('/');
+    });
 });
 
 // Start server
