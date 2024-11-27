@@ -55,10 +55,3 @@ This repository is set up as a **GitHub template** to help you quickly create yo
     npm start  
     ```  
     This will start the server at `http://localhost:3000/`.  
-
-1. You can now begin working on your project, adding your own code and committing your changes as you go:  
-    ```bash  
-    git add .  
-    git commit -m "First commit"  
-    git push origin main  
-    ```  
