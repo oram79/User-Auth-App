@@ -78,7 +78,7 @@ app.get("/signup", (request, response) => {
 // POST /signup - Allows a user to signup
 
 app.post('/signup', async (request, response) => {
-    const { username, email, password } = request.body;
+    const { username, email, password, role } = request.body;
 
     const existingUser = users.find(user => user.email === email);
     if (existingUser) {
@@ -86,7 +86,7 @@ app.post('/signup', async (request, response) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    users.push({ username, email, password: hashedPassword, role: 'user' });
+    users.push({ username, email, password: hashedPassword, role });
     response.redirect('/login');
 })
 
