@@ -45,9 +45,10 @@ const users = [
 ];
 
 // GET /login - Render login form
-app.get("/login", (request, response) => {
-    response.render("login");
+app.get('/login', (req, res) => {
+    res.render('login', { error: null });
 });
+
 
 // POST /login - Allows a user to login
 
@@ -57,16 +58,16 @@ app.use(session({
     saveUninitialized: true,
 }));
 
-app.post("/login", async (request, response) => {
+app.post('/login', async (request, response) => {
     const {email, password } = request.body;
-    const user = users.find(u => u.email === email);
 
-    if (user && await bcrypt.compare(password, user.password)) {
-        request.session.user = { username: user.username, email: user.email, role: user.role };
-        response.redirect('/landing');
-    } else {
-        response.render('login', { error: 'Invaild Login Information'});
+    const user = users.find(user => user.email === email);
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+        return response.render('login', { error: "Invaild Email Or Password"});
     }
+
+    request.session.user = { username: user.username, email: user.email, role: user.role};
+    response.redirect('/landing');
 });
 
 // GET /signup - Render signup form
