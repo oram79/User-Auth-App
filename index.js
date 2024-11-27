@@ -2,13 +2,12 @@ const express = require("express");
 const path = require("path");
 const session = require("express-session");
 const bcrypt = require('bcrypt');
-
-
 const app = express();
 const PORT = 3000;
 const SALT_ROUNDS = 10;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
     session({
@@ -72,17 +71,23 @@ app.post("/login", async (request, response) => {
 
 // GET /signup - Render signup form
 app.get("/signup", (request, response) => {
-    response.render("signup");
+    response.render('signup', { error: null });
 });
 
 // POST /signup - Allows a user to signup
 
-app.post("/signup",async(request, response) => {
+app.post('/signup', async (request, response) => {
     const { username, email, password } = request.body;
+
+    const existingUser = users.find(user => user.email === email);
+    if (existingUser) {
+        return response.render('signup', { error: 'Email Is Already In Use' });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     users.push({ username, email, password: hashedPassword, role: 'user' });
-    response.redirect('/login'); // Redirect to login after successful registration
-});
+    response.redirect('/login');
+})
 
 // GET / - Render index page or redirect to landing if logged in
 app.get("/", (request, response) => {
