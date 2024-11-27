@@ -24,23 +24,23 @@ app.set("views", path.join(__dirname, "views"));
 const users = [
     {
         id: 1,
+        username: "Oram_79",
+        email: "logansjoram7922@gmail.com",
+        password: bcrypt.hashSync("Sadie2011!", SALT_ROUNDS),
+        role: "admin",
+    },
+    {
+        id: 2,
         username: "AdminUser",
         email: "admin@example.com",
         password: bcrypt.hashSync("admin123", SALT_ROUNDS),
         role: "admin",
     },
     {
-        id: 2,
-        username: "RegularUser",
-        email: "user@example.com",
-        password: bcrypt.hashSync("user123", SALT_ROUNDS),
-        role: "user",
-    },
-    {
         id: 3,
-        username: "oram_79",
-        email: "logansjoram7922@gmail.com",
-        password: bcrypt.hashSync("Sadie2011!", SALT_ROUNDS),
+        username: "JohnDoe",
+        email: "johndoe23@gmail.com",
+        password: bcrypt.hashSync("Doe23", SALT_ROUNDS),
         role: "user"
         }
 ];
