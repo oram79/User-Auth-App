@@ -30,18 +30,11 @@ const users = [
     },
     {
         id: 2,
-        username: "AdminUser",
-        email: "admin@example.com",
+        username: "GuestAccount",
+        email: "guest@example.com",
         password: bcrypt.hashSync("admin123", SALT_ROUNDS),
-        role: "admin",
+        role: "user",
     },
-    {
-        id: 3,
-        username: "JohnDoe",
-        email: "johndoe23@gmail.com",
-        password: bcrypt.hashSync("Doe23", SALT_ROUNDS),
-        role: "user"
-        }
 ];
 
 // GET /login - Render login form
