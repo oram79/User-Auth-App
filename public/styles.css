@@ -1,102 +1,346 @@
+/* CSS FOR MAIN PAGE */
+
 body {
-    background-color: dimgrey;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    color: #F6F6F6;
-}
-
-.main-content {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50pt;
-}
-
-.main-content .error-message {
-    color: yellow;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 0px;
-}
-
-.main-content h1 {
-    font-size: 50px;
-}
-
-.main-content ul {
-    margin: 0px;
-}
-
-.main-content ul :not(:first-child) {
-    padding-top: 10px;
-}
-
-.main-content li {
-    font-size: 20px;
-}
-
-.main-content a:link {
-    color: #F6F6F6;
-}
-  
-.main-content a:visited {
-    text-decoration: none;
-}
-
-.main-content form {
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.main-content form .form-input-container {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #434343, #000000);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    height: 100vh;
 }
 
-.main-content form label {
-    padding-right: 5px;
-}
-
-.main-content form input {
-    border-radius: 5px;
-    border: 0px;
-    font-size: 14px;
-    padding: 5px;
-}
-
-.main-content button {
-    border: none;
-    background: #F6F6F6;
-    mix-blend-mode: screen;
-    padding: 6px;
-    border-radius: 5px;
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.main-content .index-button-container button {
-    font-size: 25px;
-    padding: 10px;
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 .index-button-container {
-    align-content: center;
-    padding-left: 40pt;
-    height: 125pt;
-    width: 200pt;
-    background-color: rgb(67, 66, 66);
-    border-radius: 50pt;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 40pt;
+    background: linear-gradient(to left, #434343, #000000);
+    color: black;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.index-button-container button {
-    border-radius: 10pt;
-    font-size: 12pt;
+button {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50pt;
+    background: #434343;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+button:hover {
+    background: #e64a19;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR SIGNUP AND LOGIN PAGE */
+
+.login h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+.form-input-container {
+    width: 100%;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="role"] {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="role"]:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px #ff5722;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+
+button[type="submit"] {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    background: #ff5722;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+    background: #e64a19;
+    transform: scale(1.05);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.95);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[type="logout"] {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    background: #ff5722;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
+}
+
+button[type="logout"]:hover {
+    background: #e64a19;
+    transform: scale(1.05);
+}
+
+button[type="logout"]:active {
+    transform: scale(0.95);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+a {
+    margin-top: 20pt;
+    margin-left: 5pt;
+    font-size: 0.9rem;
+    color: #ff5722;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR ADMIN DASHBOARD */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #434343, #000000);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 3rem;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.dashboard-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    background: grey;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20pt;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #ecf0f1;
+    transition: transform 0.3s;
+  }
+
+  ul li:hover {
+    transform: scale(1.05);
+    background: #e64a19;
+  }
+
+a[href="/logout"] {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50pt;
+    background: #434343;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+a[href="/logout"]:hover {
+    background: #e64a19;
+    transform: scale(1.05);
+}
+
+a[href="/logout"]:active {
+    transform: scale(1.02);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR USER DASHBOARD */
+
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+
+.dashboard-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-container a {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #ff5722;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s, color 0.3s;
+}
+
+.dashboard-container a:hover {
+    background: #ff5722;
+    color: #ffffff;
 }
