@@ -4,7 +4,7 @@ This is a lightweight user authentication template built with **Node.js**, **Exp
 
 ---
 
-## 🚀 Features
+##  Features
 
 -  Registration & Login pages
 -  Session-based authentication using `express-session`
@@ -17,7 +17,7 @@ This is a lightweight user authentication template built with **Node.js**, **Exp
 
 ---
 
-## 📦 Tech Stack
+##  Tech Stack
 
 - **Node.js** with **Express**
 - **EJS** for templating
@@ -27,12 +27,12 @@ This is a lightweight user authentication template built with **Node.js**, **Exp
 
 ---
 
-## 🧪 Upcoming Improvements
+##  Upcoming Improvements
 
 This template is intended for demo and development purposes. Upcoming enhancements include:
 
--🔜 Password strength validation
--🔜 Full error handling for form input
+- ✅ Password strength validation
+- ✅ Full error handling for form input
 - ✅ Unit tests (with Jest or Mocha)
 - 🔜 MongoDB integration (when used in real projects)
 
