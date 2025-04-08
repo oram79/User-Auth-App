@@ -1,57 +1,54 @@
-# User Management System  
+# User Auth App – Node.js Authentication Template
 
-This is the starting point for the **User Management System** assignment. The goal of this project is to create a web application where users can register, log in, and access role-based functionality based on their account type (user or admin).
+This is a lightweight user authentication template built with **Node.js**, **Express**, and **EJS**. It provides a clean starting point for building user-based web applications with login, registration, and session management out of the box.
 
-## Features  
+---
 
-- **Home Page**:  
-  - Displays "Login" and "Sign Up" buttons.  
-  - Redirects users to their dashboard after successful login.  
+## 🚀 Features
 
-- **Registration Page**:  
-  - Allows users to create an account with a username, email, and password.  
-  - Stores passwords securely using bcrypt hashing.  
+-  Registration & Login pages
+-  Session-based authentication using `express-session`
+-  Secure password hashing with `bcrypt`
+-  Role-based access control (admin vs user)
+-  Flash messages for feedback
+-  EJS templating and Bootstrap styling
+-  Middleware-based route protection
+-  Clean file structure for easy reusability
 
-- **Login Page**:  
-  - Authenticates users using their email and password.  
-  - Checks hashed passwords for validity during authentication.  
+---
 
-- **Landing Page**:  
-  - For **users**, displays a simple dashboard with their username.  
-  - For **admins**, displays all registered users, their emails, and roles.  
+## 📦 Tech Stack
 
-- **Logout**:  
-  - Logs the user out by destroying their session and redirecting to the home page.
+- **Node.js** with **Express**
+- **EJS** for templating
+- **bcrypt** for password hashing
+- **express-session** for login sessions
+- **connect-flash** for messaging
 
-## Setup Instructions  
+---
 
-### Prerequisites  
-- [Node.js](https://nodejs.org) installed on your machine.  
-- A code editor, such as [VSCode](https://code.visualstudio.com/).
+## 🧪 Upcoming Improvements
 
-## How to Use this Template  
+This template is intended for demo and development purposes. Upcoming enhancements include:
 
-This repository is set up as a **GitHub template** to help you quickly create your own version of the **User Management System**.  
+-🔜 Password strength validation
+-🔜 Full error handling for form input
+- ✅ Unit tests (with Jest or Mocha)
+- 🔜 MongoDB integration (when used in real projects)
 
-### Steps to Create Your Own Repository  
+---
 
-1. **Click the "Use this template" button** at the top of this page on GitHub.  
+## 💡 Usage
 
-1. **Name your new repository** and choose its visibility (public or private).  
+This app is intended as a **template** for future projects.
 
-1. Once your repository is created, **clone your new repo** to your local machine:  
-    ```bash  
-    git clone <your-new-repo-url>  
-    ```  
+By default, user data is stored in-memory and will reset on every server restart. When integrated into actual applications, this will be swapped out for a **MongoDB** database.
 
-1. Navigate into the project directory and install the necessary dependencies:  
-    ```bash  
-    cd <your-new-repo-name>  
-    npm install  
-    ```  
+To run locally:
 
-1. **Run the app:**  
-    ```bash  
-    npm start  
-    ```  
-    This will start the server at `http://localhost:3000/`.  
+```bash
+git clone https://github.com/oram79/User-Auth-App.git
+cd User-Auth-App
+npm install
+npm start
+
