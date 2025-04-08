@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Matthew English",
   "license": "MIT",
@@ -18,5 +18,8 @@
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-session": "^1.18.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

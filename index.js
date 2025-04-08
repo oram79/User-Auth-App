@@ -17,6 +17,12 @@ app.use(
     })
 );
 
+function validatePassword(password) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    return regex.test(password);
+  }
+  
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -70,18 +76,30 @@ app.get("/signup", (request, response) => {
 
 // POST /signup - Allows a user to signup
 
-app.post('/signup', async (request, response) => {
-    const { username, email, password, role } = request.body;
-
-    const existingUser = users.find(user => user.email === email);
-    if (existingUser) {
-        return response.render('signup', { error: 'Email Is Already In Use' });
+app.post('/signup', async (request, response, next) => {
+    try {
+      const { email, password, confirmPassword } = request.body;
+  
+      if (!validatePassword(password)) {
+        return response.render('signup', {
+          error: 'Password must be at least 8 characters and include uppercase, lowercase, number, and symbol.'
+        });
+      }
+  
+      if (password !== confirmPassword) {
+        return response.render('signup', {
+          error: 'Passwords do not match.'
+        });
+      }
+  
+      const hashedPassword = await bcrypt.hash(password, 10);
+      users.push({ email, password: hashedPassword, role: 'user' });
+      response.redirect('/login');
+    } catch (err) {
+      next(err); // Pass to error middleware
     }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    users.push({ username, email, password: hashedPassword, role });
-    response.redirect('/login');
-})
+  });
+  
 
 // GET / - Render index page or redirect to landing if logged in
 app.get("/", (request, response) => {
@@ -110,6 +128,12 @@ app.get('/logout', (request, response) => {
     });
 });
 
+app.use((error, request, response, next) => {
+    console.error(error.stack);
+    response.status(500).render('error', { message: 'Something went wrong.' });
+  });
+
+  
 // Start server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
